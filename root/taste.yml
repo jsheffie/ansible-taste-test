@@ -15,7 +15,8 @@
   - name: ensure puppy user is present
     user: name=puppy state=present group=puppy
   - name: ensure puppy.jpg is present
-    copy: src=/root/puppy.jpg dest=/usr/share/nginx/html/puppy.jpg owner=puppy group=puppy mode=664
+    get_url: https://raw.github.com/nanobeep/tt/master/puppy.jpg dest=/usr/share/nginx/html/puppy.jpg owner=puppy group=puppy mode=664 force=no
+    #copy: src=/root/puppy.jpg dest=/usr/share/nginx/html/puppy.jpg owner=puppy group=puppy mode=664
   - name: ensure index.html template is installed
     template: src=/root/index.j2 dest=/usr/share/nginx/html/index.html
  
@@ -28,7 +29,8 @@
   - name: ensure kitty user is present
     user: name=kitty state=present group=kitty
   - name: ensure kitty.jpg is present
-    copy: src=/root/kitty.jpg dest=/usr/share/nginx/html/kitty.jpg owner=kitty group=kitty mode=664
+    get_url: https://raw.github.com/nanobeep/tt/master/puppy.jpg dest=/usr/share/nginx/html/kitty.jpg owner=kitty group=kitty mode=664 force=no
+    #copy: src=/root/kitty.jpg dest=/usr/share/nginx/html/kitty.jpg owner=kitty group=kitty mode=664
   - name: ensure index.html template is installed
     template: src=/root/index.j2 dest=/usr/share/nginx/html/index.html
 
