@@ -1,0 +1,34 @@
+---
+- hosts: all
+  tasks:
+  - name: ensure nginx is installed
+    apt: pkg=nginx state=present update_cache=yes
+  - name: ensure nginx is running
+    service: name=nginx state=started 
+
+- hosts: puppy
+  vars: 
+    baby: puppy
+  tasks:
+  - name: ensure puppy group is present
+    group: name=puppy state=present
+  - name: ensure puppy user is present
+    user: name=puppy state=present group=puppy
+  - name: ensure puppy.jpg is present
+    copy: src=/root/puppy.jpg dest=/usr/share/nginx/html/puppy.jpg owner=puppy group=puppy mode=664
+  - name: ensure index.html template is installed
+    template: src=/root/index.j2 dest=/usr/share/nginx/html/index.html
+ 
+- hosts: kitty
+  vars: 
+    baby: kitty
+  tasks:
+  - name: ensure kitty group is present
+    group: name=kitty state=present
+  - name: ensure kitty user is present
+    user: name=kitty state=present group=kitty
+  - name: ensure kitty.jpg is present
+    copy: src=/root/kitty.jpg dest=/usr/share/nginx/html/kitty.jpg owner=kitty group=kitty mode=664
+  - name: ensure index.html template is installed
+    template: src=/root/index.j2 dest=/usr/share/nginx/html/index.html
+
