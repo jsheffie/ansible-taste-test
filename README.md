@@ -29,5 +29,6 @@ $ apt-get install git -y
 
 Fianlly you are ready to provision your nodes.
 - Pull this repository in the dod-master machine
+- move its contents to ~/
 
 `ansible-playbook taste.yml`
