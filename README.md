@@ -22,6 +22,7 @@ $ apt-get install python-software-properties -y
 $ add-apt-repository ppa:rquillo/ansible -y
 $ apt-get update
 $ apt-get install ansible -y
+$ apt-get install git -y
 ```
 
 ## provision your nodes
