@@ -20,6 +20,8 @@ Setup ansible on dod-master
 $ apt-get update
 $ apt-get install python-software-properties -y
 $ add-apt-repository ppa:rquillo/ansible -y
+or 
+$ apt-add-repository -y ppa:ansible/ansible
 $ apt-get update
 $ apt-get install ansible -y
 $ apt-get install git -y
